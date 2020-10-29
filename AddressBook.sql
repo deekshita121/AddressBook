@@ -39,3 +39,7 @@ select * from addressbook_service where city = 'Calicut' or state = 'Kerala';
 #Understand the size of address book by city or state
 select city, count(*) from addressbook_service group by city;
 select state, count(*) from addressbook_service group by state;
+
+#usecase8
+#Retrieve the records sorted alphabetically for a given city
+select * from addressbook_service where city ='Calicut' order by firstName;
