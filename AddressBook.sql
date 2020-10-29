@@ -34,3 +34,8 @@ delete from addressbook_service where firstName = 'Diya' and lastName = 'Prakash
 #Usecase6
 #Ability to retrieve person belonging to a state or city
 select * from addressbook_service where city = 'Calicut' or state = 'Kerala';
+
+#usecase7
+#Understand the size of address book by city or state
+select city, count(*) from addressbook_service group by city;
+select state, count(*) from addressbook_service group by state;
