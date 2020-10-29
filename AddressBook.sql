@@ -54,3 +54,7 @@ update addressbook_service set addressbook_name = 'Dev' where firstName = 'Dev';
 update addressbook_service set addressbook_type = 'Relative' where firstName = 'Dev';
 update addressbook_service set addressbook_name = 'Dhruv' where firstName = 'Dhruv';
 update addressbook_service set addressbook_type = 'Family' where firstName = 'Dhruv';
+
+#usecase10
+#Count by type
+select addressbook_type, count(*) from addressbook_service group by addressbook_type;
