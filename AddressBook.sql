@@ -21,7 +21,7 @@ primary key (emailId)
 #Inserting records
 insert into addressbook_service(firstName, lastName, Address, city, state, zip, phoneNo, emailId)values
 ('Diya', 'Prakash', '91/160', 'Kanchipuram', 'TamilNadu', '345123', '68246531', 'diya.prakash21@gmail.com'),
-('Dev', 'Narayan', '4-21', 'Khozikode', 'Kerala', '654231', '918288541', 'narayan1_dev@gmail.com');
+('Dhruv', 'Aaryan', '4-21', 'Banglore', 'Karnataka', '654231', '918288541', 'Dhruv_Aaryan@gmail.com');
 
 #Usecase4
 #Updating contact details with name
@@ -43,3 +43,14 @@ select state, count(*) from addressbook_service group by state;
 #usecase8
 #Retrieve the records sorted alphabetically for a given city
 select * from addressbook_service where city ='Calicut' order by firstName;
+
+#usecase9
+#Add name and type to addressbook
+alter table addressbook_service add addressbook_name varchar(20);
+alter table addressbook_service add addressbook_type varchar(20) after addressbook_name;
+update addressbook_service set addressbook_name = 'Diya' where firstName = 'Diya';
+update addressbook_service set addressbook_type = 'Friends' where firstName = 'Diya';
+update addressbook_service set addressbook_name = 'Dev' where firstName = 'Dev';
+update addressbook_service set addressbook_type = 'Relative' where firstName = 'Dev';
+update addressbook_service set addressbook_name = 'Dhruv' where firstName = 'Dhruv';
+update addressbook_service set addressbook_type = 'Family' where firstName = 'Dhruv';
