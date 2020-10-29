@@ -30,3 +30,7 @@ update addressbook_service set city = 'Calicut' where firstName = 'Dev' and last
 #Usecase5
 #Delete a person using persons name
 delete from addressbook_service where firstName = 'Diya' and lastName = 'Prakash';
+
+#Usecase6
+#Ability to retrieve person belonging to a state or city
+select * from addressbook_service where city = 'Calicut' or state = 'Kerala';
