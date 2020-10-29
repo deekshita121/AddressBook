@@ -26,3 +26,7 @@ insert into addressbook_service(firstName, lastName, Address, city, state, zip, 
 #Usecase4
 #Updating contact details with name
 update addressbook_service set city = 'Calicut' where firstName = 'Dev' and lastName = 'Narayan';
+
+#Usecase5
+#Delete a person using persons name
+delete from addressbook_service where firstName = 'Diya' and lastName = 'Prakash';
