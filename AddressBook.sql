@@ -64,3 +64,4 @@ select addressbook_type, count(*) from addressbook_service group by addressbook_
 insert into addressbook_service(firstName, lastName, Address, city, state, zip, phoneNo, emailId, addressbook_name, addressbook_type)values
 ('Divya', 'Sushrutha', '9/160', 'Banglore', 'Karnataka', '654231', '918288541', 'sushrutha.d@gmail.com', 'Divya', 'Family'),
 ('Divya', 'Sushrutha', '9/160', 'Banglore', 'Karnataka', '654231', '918288541', 'sushrutha.d1@gmail.com', 'Divya', 'Friends');
+
