@@ -65,3 +65,71 @@ insert into addressbook_service(firstName, lastName, Address, city, state, zip, 
 ('Divya', 'Sushrutha', '9/160', 'Banglore', 'Karnataka', '654231', '918288541', 'sushrutha.d@gmail.com', 'Divya', 'Family'),
 ('Divya', 'Sushrutha', '9/160', 'Banglore', 'Karnataka', '654231', '918288541', 'sushrutha.d1@gmail.com', 'Divya', 'Friends');
 
+#Usecase13
+create table contact (
+    contact_id int unsigned not null,
+    first_name varchar(20) not null,
+    last_name varchar(20) not null,
+    address varchar(50) not null,
+    city varchar(20) not null,
+    state varchar(20) not null,
+    zip int unsigned not null,
+    phone_number varchar(10) not null,
+    email_id varchar(30) not null,
+    primary key (contact_id)
+);
+
+create table address_book_name (
+    book_id int unsigned not null,
+    book_name varchar(20) not null,
+    primary key (book_id)
+);
+
+create table address_book_type (
+    type_id int unsigned not null,
+    type_name varchar(20) not null,
+    primary key (type_id)
+);
+
+create table dictonary(
+    contact_id int unsigned not null,
+    book_id int unsigned not null,
+    type_id int unsigned not null,
+    foreign key (contact_id) references contact (contact_id),
+    foreign key (book_id) references address_book_name (book_id),
+    foreign key (type_id) references address_book_type (type_id)
+);
+
+insert into contact values
+(1, 'Divya','Prakash','M.G.Road','Bangalore','Karnataka',123456,9876543210,'divya_prakash@gmail.com'),
+(2, 'Arjun','Roy','S.R.Nagar','Chennai','Tamil Nadu',234567,7890654345,'roy1.arjun@gmail.com'),
+(3, 'Samyuktha','Hegde','Begumpet','Hyderabad','Telangana',345678,7896592346,'samyuktha_samyu@gmail.com'),
+(4, 'Anjana','Jaweri','Thane','Mumbai','Maharashtra',456789,8978765645,'Anjana.anju@gmail.com'),
+(5, 'Dev','Aswanth','Agra','Delhi','Delhi',343423,9934569023,'Aswanth_dev@gmail.com');
+
+insert into address_book_name values
+(101, 'myContacts'),
+(102, 'officeContacts');
+
+insert into address_book_type values
+(50, 'Family'),
+(51, 'Friend'),
+(52, 'Professional');
+
+insert into dictionary values
+(1,101,50),
+(2,101,51),
+(3,101,50),
+(4,101,50),
+(5,102,52);
+
+select * from contact where city = 'Bangalore' or state = 'Karnataka';
+
+select city, count(contact_id) from contact group by city;
+select state, count(contact_id) from contact group by state;
+
+select * from contact where city = 'Mumbai'order by first_name;
+
+select address_book_type.type_name, count(dictionary.contact_id) from dictionary
+join address_book_type on address_book_type.type_id = dictionary.type_id
+group by dictionary.type_id;
